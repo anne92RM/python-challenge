@@ -171,3 +171,4 @@ F (+/-) 	< 60
 Submission
 
 To submit your Challenge assignment, click Submit, and then provide the URL of your GitHub repository for grading.
+...
