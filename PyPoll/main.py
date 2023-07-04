@@ -1,6 +1,8 @@
 import os
 import csv
 
+text_path = "PyPoll_output.txt"
+
 pollData = os.path.join(".","Resources","election_data.csv")
 #currentDirectory = os.getcwd()
 #print(currentDirectory)
@@ -49,12 +51,15 @@ with open(pollData, newline="", encoding="utf-8") as csvfile:
     print(f"Winner: {candilist[winner]}")
     print("----------------------------")
 
-  # Print the results to "PyPoll.txt" file
-    print("Election Results", file=open("PyPoll.txt", "a"))
-    print("----------------------------", file=open("PyPoll.txt", "a"))
-    print(f"Total Votes: {row_count:,}", file=open("PyPoll.txt", "a"))
-    print("----------------------------", file=open("PyPoll.txt", "a"))
-    for k in range (0,candicount): 
-        print(f"{candilist[k]}: {percentage[k]:.3%} ({votes[k]:,})", file=open("PyPoll.txt", "a"))
-    print("----------------------------", file=open("PyPoll.txt", "a"))
-    print(f"Winner: {candilist[winner]}", file=open("PyPoll.txt", "a"))
+# Print result to text file
+    with open(text_path, 'w') as file:
+            file.write("Election Results\n")
+            file.write("---------------------\n")
+            file.write(f"Total Votes: {row_count:,}\n")
+            file.write("---------------------\n")
+            for k in range (0,candicount): 
+                file.write(f"{candilist[k]}: {percentage[k]:.3%} ({votes[k]:,})\n")
+            file.write("---------------------\n")
+            file.write(f"Winner: {candilist[winner]}\n")
+
+
