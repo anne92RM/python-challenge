@@ -45,6 +45,7 @@ with open(budgetdata_csv) as csv_file:
             greatest_decrease[0] = row['Date']
             revenue_average = sum(revenue_change_list)/len(revenue_change_list)
 
+#create a text output
         with open(text_path, 'w') as file:
             file.write("Financial Analysis\n")
             file.write("---------------------\n")
@@ -54,3 +55,17 @@ with open(budgetdata_csv) as csv_file:
             file.write("Greatest Increase in Revenue: %s ($%s)\n" % (greatest_increase[0], greatest_increase[1]))
             file.write("Greatest Decrease in Revenue: %s ($%s)\n" % (greatest_decrease[0], greatest_decrease[1]))
 
+#print results to terminal
+    print("Financial Analysis") 
+    print("---------------------")
+    print("Total Months: %d\n" %total_months)
+    print("Total Revenue: $%d\n" %total_revenue)
+    print("Average Revenue Change $%d\n" %revenue_average)
+    print("Greatest Increase in Revenue: %s ($%s)\n" % (greatest_increase[0], greatest_increase[1]))
+    print("Greatest Decrease in Revenue: %s ($%s)\n" % (greatest_decrease[0], greatest_decrease[1]))
+
+
+
+
+
+        
